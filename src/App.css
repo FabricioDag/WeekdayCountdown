@@ -1,0 +1,23 @@
+.appWrapper {
+  background-color: rgb(11, 1, 12);
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.counter {
+  padding: 2rem;
+  border-radius: 0.3rem;
+  color: black;
+}
+
+.counter h1 {
+  font-size: 5rem;
+}
+
+.counter p {
+  font-size: 1rem;
+}
