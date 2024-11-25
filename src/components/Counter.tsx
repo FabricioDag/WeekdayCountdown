@@ -2,10 +2,10 @@ function Counter() {
   // pega dia atual
   let today = new Date();
   // pega data final
-  let lastDay = new Date('September 4, 2024 23:59:59');
+  let lastDay = new Date('December 31, 2024 23:59:59');
   // verifica cada dia até data final se é dia util
 
-  const calcularDiasRestantes = (lastDay) => {
+  const calcularDiasRestantes = (lastDay:Date) => {
     const umDiaEmMilissegundos = 1000 * 60 * 60 * 24;
     let diasRestantes = Math.ceil(
       (lastDay.getTime() - Date.now()) / umDiaEmMilissegundos
@@ -13,7 +13,7 @@ function Counter() {
     return diasRestantes;
   };
 
-  const calcularDiasUteis = (lastDay) => {
+  const calcularDiasUteis = (lastDay:Date) => {
     let dia = today;
     let counter = 0;
 
@@ -26,7 +26,7 @@ function Counter() {
     return counter;
   };
 
-  const isDiaUtil = (date) => {
+  const isDiaUtil = (date: Date) => {
     const diaDaSemana = date.getDay();
     return diaDaSemana !== 0 && diaDaSemana !== 6; // Retorna verdadeiro se não for doming(0) nem sábado (6)
   };
