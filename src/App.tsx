@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 
 import Counter from './components/Counter.tsx';
@@ -7,7 +8,7 @@ import {Teste} from './components/Teste.tsx'
 
 function App() {
 
-  const counters = [
+  const [counters, setCounters] = useState([
     {
       title:'Teste',
       endDate:'01-31-2025'
@@ -16,11 +17,18 @@ function App() {
       title:'Teste2',
       endDate:'03-01-2025'
     }
-  ]
+  ])
+
+  const handleAddCounter = (counter) =>{
+    let newCounters = [...counters,
+    counter]
+
+    setCounters(newCounters)
+  }
 
   return (
     <div className="appWrapper">
-      <Teste/>
+      <Teste addCounter={handleAddCounter}/>
       {/* <ExpandableModal></ExpandableModal> */}
       <h2>Seus Contadores:</h2>
       <div className="countersWrapper">
