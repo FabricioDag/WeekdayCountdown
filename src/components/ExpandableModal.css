@@ -1,0 +1,92 @@
+/* Container principal */
+.modal-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Fundo escuro ao abrir o modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Estilização base do modal */
+  .modal-content {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease-in-out;
+  }
+  
+  /* Botão circular */
+  .modal-button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: transform 0.2s ease;
+  }
+  
+  .modal-button:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Ícone "+" */
+  .plus-icon {
+    font-size: 2.5rem;
+  }
+  
+  /* Estilos do conteúdo interno do modal */
+  .modal-inner {
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+  }
+  
+  /* Botão de fechar */
+  .close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .close-button:hover {
+    color: black;
+  }
+  
+  /* Título e texto */
+  .modal-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .modal-text {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+  }
+  

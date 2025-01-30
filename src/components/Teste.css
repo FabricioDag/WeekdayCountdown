@@ -1,0 +1,24 @@
+.modalBg{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+}
+
+.testediv{
+    border: 2px solid white;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    position: fixed;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.inputBox{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    text-align: left;
+}

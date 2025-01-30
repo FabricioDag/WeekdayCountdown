@@ -1,41 +1,55 @@
-function Counter() {
-  // pega dia atual
-  let today = new Date();
-  // pega data final
-  let lastDay = new Date('December 31, 2024 23:59:59');
-  // verifica cada dia até data final se é dia util
+function Counter({ dataCounter }) {
+  let today: Date = new Date();
+  let lastDay: Date = new Date(dataCounter.endDate);
 
-  const calcularDiasRestantes = (lastDay:Date) => {
+  const feriados_nacionais = [
+
+    "2025-01-01",
+    "2025-02-17",
+    "2025-04-18",
+    "2025-04-21",
+    "2025-05-01",
+    "2025-09-07",
+    "2025-10-12",
+    "2025-11-02",
+    "2025-11-15",
+    "2025-12-25"
+  ];
+
+  const calcularDiasRestantes = (lastDay: Date) => {
     const umDiaEmMilissegundos = 1000 * 60 * 60 * 24;
-    let diasRestantes = Math.ceil(
-      (lastDay.getTime() - Date.now()) / umDiaEmMilissegundos
-    ); // Calcula o número de dias restantes
-    return diasRestantes;
+    return Math.ceil((lastDay.getTime() - today.getTime()) / umDiaEmMilissegundos);
   };
 
-  const calcularDiasUteis = (lastDay:Date) => {
-    let dia = today;
+  const isFeriado = (date: Date) => {
+    const formattedDate = date.toISOString().split("T")[0]; // Transforma em "YYYY-MM-DD"
+    return feriados_nacionais.includes(formattedDate);
+  };
+
+  const isDiaUtil = (date: Date) => {
+    const diaDaSemana = date.getDay();
+    return diaDaSemana !== 0 && diaDaSemana !== 6 && !isFeriado(date);
+  };
+
+  const calcularDiasUteis = (lastDay: Date) => {
     let counter = 0;
+    let dia = new Date(today);
 
     for (let i = 0; i < calcularDiasRestantes(lastDay); i++) {
       if (isDiaUtil(dia)) {
         counter++;
       }
-      dia.setDate(dia.getDate() + 1);
+      dia.setDate(dia.getDate() + 1); // Avança um dia
     }
     return counter;
-  };
-
-  const isDiaUtil = (date: Date) => {
-    const diaDaSemana = date.getDay();
-    return diaDaSemana !== 0 && diaDaSemana !== 6; // Retorna verdadeiro se não for doming(0) nem sábado (6)
   };
 
   return (
     <div
       className="counter"
-      style={{ backgroundColor: isDiaUtil(today) ? '#3CB371' : '#FA8072' }}
+      style={{ color: isDiaUtil(today) ? "rgba(142, 222, 247, 1)" : "#FA8072" }}
     >
+      <p>{dataCounter.title}</p>
       <h1>{calcularDiasUteis(lastDay)}</h1>
       <p>de {calcularDiasRestantes(lastDay)} totais</p>
     </div>
