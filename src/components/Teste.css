@@ -1,89 +1,92 @@
-.modalBg{
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    transition: opacity 0.3s ease;
-    z-index: 100;
+.modalBg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+  z-index: 100;
 }
 
-.testediv{
-    border: 2px solid white;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    position: fixed;
-    color:white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1000;
+.modalDiv {
+  border: 2px solid white;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
 }
 
-.inputWrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* outline: 2px solid red; */
-    align-items: center;
-    gap:1rem;
-    padding: 1rem;
+.inputWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* outline: 2px solid red; */
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.inputBox{
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-    text-align: left;
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: left;
 }
 
-.inputBox input{
-    padding: .3rem;
-    border-radius: .2rem;
-    border: 2px solid white;
-    background-color: transparent;
-    color: white;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+.inputBox input {
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-.title{
-    grid-column: span 3;
+.title {
+  grid-column: span 3;
 }
 
-.actionArea{
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-    align-items: center;
+.actionArea {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
 }
 
-.actionArea input{
-    padding: .3rem 1rem;
-    border: 2px solid white;
-    border-radius: .2rem;
-    background-color: transparent;
-    color: white;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    cursor: pointer;
-    transition: .2s ease;
-    width: fit-content;
-    font-weight: bold;
+.actionArea input {
+  padding: 0.3rem 1rem;
+  border: 2px solid white;
+  border-radius: 0.2rem;
+  background-color: transparent;
+  color: white;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  transition: 0.2s ease;
+  width: fit-content;
+  font-weight: bold;
 }
 
-.actionArea input:hover{
-    background-color: white;
-    color:#6a11cb;
+.actionArea input:hover {
+  background-color: white;
+  color: #6a11cb;
 }
 
-.actionArea button{
-    background-color: transparent;
-    border: none;
-    color: white;
-    text-decoration: underline;
-    opacity: .5;
-    transition: .2s ease;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    cursor: pointer;
+.actionArea button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-decoration: underline;
+  opacity: 0.5;
+  transition: 0.2s ease;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  cursor: pointer;
 }
 
-.actionArea button:hover{
-    letter-spacing: .05rem;
-    opacity: 1;
+.actionArea button:hover {
+  letter-spacing: 0.05rem;
+  opacity: 1;
 }

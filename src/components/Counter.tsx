@@ -1,9 +1,13 @@
-function Counter({ dataCounter }) {
+interface DataCounter {
+  endDate: string;
+  title: string;
+}
+
+function Counter({ dataCounter }: { dataCounter: DataCounter }) {
   let today: Date = new Date();
   let lastDay: Date = new Date(dataCounter.endDate);
 
   const feriados_nacionais = [
-
     "2025-01-01",
     "2025-02-17",
     "2025-04-18",
@@ -13,12 +17,14 @@ function Counter({ dataCounter }) {
     "2025-10-12",
     "2025-11-02",
     "2025-11-15",
-    "2025-12-25"
+    "2025-12-25",
   ];
 
   const calcularDiasRestantes = (lastDay: Date) => {
     const umDiaEmMilissegundos = 1000 * 60 * 60 * 24;
-    return Math.ceil((lastDay.getTime() - today.getTime()) / umDiaEmMilissegundos);
+    return Math.ceil(
+      (lastDay.getTime() - today.getTime()) / umDiaEmMilissegundos
+    );
   };
 
   const isFeriado = (date: Date) => {

@@ -1,41 +1,52 @@
-import { useState } from 'react';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
 
-import Counter from './components/Counter.tsx';
-import ExpandableModal from './components/ExpandableModal.tsx';
-import {Teste} from './components/Teste.tsx'
+import Counter from "./components/Counter.tsx";
 
+import { Modal } from "./components/Modal.tsx";
 
 function App() {
+  const [counters, setCounters] = useState<
+    { title: string; endDate: string | null }[]
+  >(() => {
+    const savedCounters = localStorage.getItem("counters");
+    return savedCounters ? JSON.parse(savedCounters) : [];
+  });
 
-  const [counters, setCounters] = useState([
-    {
-      title:'Teste',
-      endDate:'01-31-2025'
-    },
-    {
-      title:'Teste2',
-      endDate:'03-01-2025'
-    }
-  ])
+  useEffect(() => {
+    localStorage.setItem("counters", JSON.stringify(counters));
+  }, [counters]);
 
-  const handleAddCounter = (counter) =>{
-    let newCounters = [...counters,
-    counter]
+  const handleAddCounter = (counter: {
+    title: string;
+    endDate: string | null;
+  }) => {
+    let newCounters = [...counters, counter];
 
-    setCounters(newCounters)
-  }
+    setCounters(newCounters);
+  };
 
   return (
     <div className="appWrapper">
-      <Teste addCounter={handleAddCounter}/>
-      {/* <ExpandableModal></ExpandableModal> */}
+      <Modal addCounter={handleAddCounter} />
+
       <h2>Seus Contadores:</h2>
+
       <div className="countersWrapper">
-        {counters &&
-          counters.map((counter)=>(
-            <Counter dataCounter={counter}/>
-          ))}
+        {counters.length > 0 ? (
+          counters.map((counter) => (
+            <Counter
+              dataCounter={{
+                ...counter,
+                endDate: counter.endDate || "",
+              }}
+            />
+          ))
+        ) : (
+          <div>
+            <h1>Nenhum contador adicionado</h1>
+          </div>
+        )}
       </div>
     </div>
   );
